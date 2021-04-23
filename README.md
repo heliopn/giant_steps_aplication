@@ -2,10 +2,10 @@
 Obrigado por se candidatar a uma posição na Giant Steps Capital. Gostaríamos de propor-lhe um desafio técnico para que você tenha
 a oportunidade de demonstrar sua experiência com desenvolvimento e que nós possamos conhecer a forma como você trabalha.
 
-# Contexto
+## Contexto
 A Giant Steps Capital começou operar na bolsa de Gotham City e precisa validar as operações no sistema da empresa, para isso será necessário processar um arquivo disponibilizado pela bolsa da cidade que contém uma série de ID's das transações. O objetivo desse processamento será a obtenção de um resumo das operações da empresa.
 
-# Especificações
+## Especificações
 Os ID's das operações são disponibilizados em um arquivo txt. Cada ID é descrito por:
 
 - ID é uma string com o seguinte formato
@@ -27,7 +27,7 @@ que segue as seguintes regras:
 
 *Somar todas as quantidades pra cada ticker e agrupar em uma informação.
 
-# Exemplo
+## Exemplo
 
 Dado o seguinte arquivo:
 
@@ -73,7 +73,7 @@ Deve retornar:
 4. LEXXX:
 * Não passou na validação, não deve ser retornado.
 
-# Entregáveis
+## Entregáveis
 
 Entregue sua solução escrita em Python num repositório Git privado,
 liberando acesso apenas para nosso avaliador. Sua solução deve conter os seguintes itens:
