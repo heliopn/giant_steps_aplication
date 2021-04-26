@@ -1,77 +1,146 @@
-# Desafio Técnico - Estágio/Júnior. 2021Q2
-Obrigado por se candidatar a uma posição na Giant Steps Capital. Gostaríamos de propor-lhe um desafio técnico para que você tenha
-a oportunidade de demonstrar sua experiência com desenvolvimento e que nós possamos conhecer a forma como você trabalha.
+# Desafio
+
+Obrigado por se candidatar a Giant Steps. Gostaríamos de propor-lhe um desafio técnico para que você tenha a oportunidade de demonstrar sua experiência e habilidades.
+
+## Instruções de Entrega
+
+Siga as instruções de entrega que foram informadas ao recebero o desafio. Lembre-se que o repositório contendo a sua solução deve ser **privado**.
+
+A solução deverá ser implementada utilizando a linguagem de programação **Python** e o repositório deverá conter um README na raíz do projeto contemplando instruções suficientes para execução da solução e execução dos testes automatizados, não esqueça de especificar a versão do Python e suas dependências.
 
 ## Contexto
-A Giant Steps Capital começou operar na bolsa de Gotham City e precisa validar as operações no sistema da empresa, para isso será necessário processar um arquivo disponibilizado pela bolsa da cidade que contém uma série de ID's das transações. O objetivo desse processamento será a obtenção de um resumo das operações da empresa.
 
-## Especificações
-Os ID's das operações são disponibilizados em um arquivo txt. Cada ID é descrito por:
+A Giant Steps começou operar na bolsa de Gotham City e recebe no final do dia um arquivo disponibilizado `gotham_op.txt` pela bolsa da cidade que contém os registros das operações.
 
-- ID é uma string com o seguinte formato
+Este arquivo deverá ser validado e interpretado com o propósito de se obter um resumo das operações do dia e identificar problemas no arquivo.
 
-        "SIDE:(tipo de side):QTY:(quantidade):EQUITY:(ticker)"
+## Sobre o Arquivo
 
-que segue as seguintes regras:
+Os registros das operações são disponibilizados no arquivo `gotham_op.txt`. Cada linha do arquivo representa uma operação e está formatada da seguinte maneira:
 
-
-* Tipo de SIDE: BUY ou SELL
-* Quantidade: número inteiro positivo não nulo
-* Ticker: string de cinco até seis caracteres, sendo os quatro primeiros letras, e os dois últimos algarismos de 0 a 9 que variam no seu tamanho de um até dois.
-
-### Seu desafio será:
-
-1. Ler o arquivo gothan_info.txt 
-2. Validar se a string segue as regras mencionadas acima
-3. Retornar dados consolidados(exemplo: tipo dicionário) contendo as informações dos ID's válidos e suas posições* por ticker como também os tickers dos ID's que não foram validados.
-
-*Somar todas as quantidades pra cada ticker e agrupar em uma informação.
-
-## Exemplo
-
-Dado o seguinte arquivo:
-
-gothan_info.txt 
 ```
-"SIDE:BUY:QTY:150:EQUITY:LEXXX"
-"SIDE:BUY:QTY:100:EQUITY:WAYN3"
-"SIDE:BUY:QTY:500:EQUITY:WAYN3"
-"SIDE:SELL:QTY:200:EQUITY:WAYN3"
-"SIDE:SELL:QTY:150:EQUITY:LEXC0"
-"SIDE:SELL:QTY:400:EQUITY:LEXC0"
-"SIDE:BUY:QTY:10:EQUITY:KORD14"
+SIDE:{side_type};QTY:{quantity};TICKER:{ticker}
 ```
+### Regras
+
+Abaixo segue as regras para cada campo:
+* side_type: representa se foi uma compra ou venda
+  * uma string que pode ter o valor BUY ou SELL
+* quantity: representa a quantidade de ativos que foi comprada ou vendida
+  * um número inteiro positivo não nulo
+  * o número é multiplo de 10
+* ticker: representa o ativo
+  * uma string de cinco a seis caracteres
+  * os quatro primeiros caracteres são sempre letras
+  * quando tem somente 5 caracteres o último é um número de 0 a 9 (e.g.: `WAYN3`, `PALM9`)
+  * quando tem 6 caracteres os dois últimos são números de 0 a 9 (e.g.: `ACME11`, `QEEN36`)
+
+### Exemplos
+#### Formatação Correta
+
+```
+SIDE:BUY;QTY:100;TICKER:ACEC4
+```
+Comprou 100 ações da ACEC4
+
+```
+SIDE:SELL;QTY:1000;TICKER:WAYN3
+```
+Vendeu 1000 ações da WAYN3
+
+```
+SIDE:BUY;QTY:600;TICKER:QEEN36
+```
+Comprou 600 ações da QEEN36
+
+#### Formatação Inválida
+
+```
+SIDE:BUY;QTY:100;TICKER:ACECHEMICAL
+```
+TICKER mal formatado
+
+```
+SIDE:B;QTY:100;TICKER:QEEN36
+```
+Valor inválido de SIDE
+
+```
+SIDE:SELL;QTY:2;TICKER:ACEC4
+```
+QTY não é múltiplo de 10
+
+```
+SIDE:S;QTY:-100;TICKER:ACE4
+```
+Valor inválido de SIDE; QTY não é positivo; TICKER mal formatado
 
 
+## Output
 
-Deve retornar:
+A sua solução deverá:
+1. Ler o arquivo gotham_op.txt
+2. Retornar o total que foi comprado e vendido no dia por ativo (TICKER)
+  * Somar as compras (BUY) e subtrair as vendas (SELL) **das linhas válidas** agrupada pelo TICKER
+3. Informar quais linhas são inválidas
+
+### Exemplos
+
+#### Exemplo 1
+
+Dado o arquivo:
 ```
-{
-    "VALIDOS": {  "WAYN3": 400,
-                "LEXCO": 550,
-                "KORD14": 10},
-    "INVALIDOS": ["LEXXX"]
-}
+SIDE:BUY;QTY:100;TICKER:ACEC4
+SIDE:BUY;QTY:120;TICKER:QEEN36
+SIDE:SELL;QTY:20;TICKER:ACEC4
+SIDE:SELL;QTY:100;TICKER:QEEN36
+SIDE:BUY;QTY:100;TICKER:ACEC4
+SIDE:SELL;QTY:90;TICKER:ACEC4
+SIDE:SELL;QTY:300;TICKER:WAYN3
+SIDE:BUY;QTY:100;TICKER:ACEC4
+SIDE:BUY;QTY:100;TICKER:ACEC4
 ```
+
+##### Retornar o total que foi comprado e vendido no dia por ativo (TICKER)
+* ACEC4: 290
+* QEEN36: 20
+* WAYN3: -300
+
+##### Informar quais linhas são inválidas
+Nenhuma
+
+#### Exemplo 2
+
+Dado o arquivo:
+```
+SIDE:BUY;QTY:300;TICKER:QEEN36
+SIDE:SELL;QTY:20;TICKER:ACECHEMICAL
+SIDE:BUY;QTY:100;TICKER:WAYN3
+SIDE:SELL;QTY:800;TICKER:QEEN36
+SIDE:S;QTY:300;TICKER:WAYN3
+SIDE:BUY;QTY:33;TICKER:WAYN3
+SIDE:S;QTY:-103;TICKER:ACECHEMICAL
+```
+
+##### Retornar o total que foi comprado e vendido no dia por ativo (TICKER)
+* QEEN36: -500
+* WAYN3: 100
+
+##### Informar quais linhas são inválidas
+* SIDE:SELL;QTY:20;TICKER:ACECHEMICAL
+  * TICKER mal formatado
+* SIDE:S;QTY:300;TICKER:WAYN3
+  * Valor inválido de SIDE
+* SIDE:BUY;QTY:33;TICKER:WAYN3
+  * QTY não é múltiplo de 10
+* SIDE:S;QTY:-103;TICKER:ACECHEMICAL
+  * Valor inválido de SIDE; QTY não é positivo; QTY não é múltiplo de 10; TICKER mal formatado
+
 
 ### Explicação:
 
 
-1. WAYN3:
-* BUY: 100+500 = 600
-* SELL: 200
-* Consolidação = 600 - 200 = 400
 
-2. LEXC0:
-* SELL:150 + 400 = 550
-* Consolidação = 0 - 550 = -550
-
-3. KORD14
-* BUY:10 = 10
-* Consolidação = 10
-
-4. LEXXX:
-* Não passou na validação, não deve ser retornado.
 
 ## Entregáveis
 
