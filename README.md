@@ -146,6 +146,6 @@ Resumindo sua entrega deverá conter:
 
 ## Perguntas Frequentes (FAQ)
 * Devo usar alguma biblioteca ou framework específico para a resolução?
-  * Não, utilize as ferramentas que você estiver mais confortável. O objetivo desse teste é você mostrar suas habilidades de programador e engenheiro de software. O único requisito técnico é que a implementação seja feita utilizando Python.
+  * Nenhum em específico: utilize as ferramentas que você estiver mais confortável. O objetivo desse teste é você mostrar suas habilidades de programador e engenheiro de software. O único requisito técnico é que a implementação seja feita utilizando Python.
 * O desafio pede uma boa cobertura de testes, isso quer dizer que deve cobrir 100% do código?
   * Não necessariamente. O mais importante é que seu código tenha bons testes e casos de teste, essa parte é tão importante quanto o código da solução.
