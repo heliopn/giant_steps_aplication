@@ -75,7 +75,7 @@ Valor inválido de SIDE; QTY não é positivo; TICKER mal formatado
 A sua solução deverá:
 1. Ler o arquivo `gotham_op.txt`
 2. Retornar o total que foi comprado e vendido no dia por ativo (TICKER)
-    * Somar as compras (BUY) e subtrair as vendas (SELL) **das linhas válidas** agrupada pelo TICKER
+    * Somar as compras (BUY) e subtrair as vendas (SELL) **das linhas válidas** agrupando pelo TICKER
 3. Informar quais linhas são inválidas
 
 ### Exemplos
