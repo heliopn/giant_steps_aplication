@@ -23,7 +23,7 @@ SIDE:{side_type};QTY:{quantity};TICKER:{ticker}
 ```
 ### Regras
 
-Abaixo seguem as regras para cada campo:
+Seguem abaixo as regras para cada campo:
 * side_type: representa se foi uma compra ou venda
   * uma string que pode ter o valor BUY ou SELL
 * quantity: representa a quantidade de ativos que foi comprada ou vendida
@@ -86,7 +86,7 @@ A sua solução deverá:
 
 ### Exemplos
 
-#### Exemplo 1
+ #### Exemplo 1
 
 Dado o arquivo:
 ```
