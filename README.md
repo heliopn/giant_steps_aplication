@@ -23,7 +23,7 @@ SIDE:{side_type};QTY:{quantity};TICKER:{ticker}
 ```
 ### Regras
 
-Abaixo segue as regras para cada campo:
+Abaixo seguem as regras para cada campo:
 * side_type: representa se foi uma compra ou venda
   * uma string que pode ter o valor BUY ou SELL
 * quantity: representa a quantidade de ativos que foi comprada ou vendida
@@ -135,11 +135,6 @@ SIDE:S;QTY:-103;TICKER:ACECHEMICAL
   * QTY não é múltiplo de 10
 * SIDE:S;QTY:-103;TICKER:ACECHEMICAL
   * Valor inválido de SIDE; QTY não é positivo; QTY não é múltiplo de 10; TICKER mal formatado
-
-
-### Explicação:
-
-
 
 
 ## Entregáveis
