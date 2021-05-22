@@ -1,9 +1,5 @@
 # Desafio
 
-Obrigado por se candidatar a Giant Steps. Gostaríamos de propor-lhe um desafio técnico para que você tenha a oportunidade de demonstrar sua experiência e habilidades.
-
-## Contexto
-
 A Giant Steps começou operar na bolsa de Gotham City e recebe no final do dia o arquivo `gotham_op.txt` disponibilizado pela bolsa da cidade que contém os registros das operações.
 
 Este arquivo deverá ser validado e interpretado com o propósito de se obter um resumo das operações do dia e identificar problemas no arquivo.
