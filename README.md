@@ -17,4 +17,4 @@ Caso não tenha o PANDAS instalado você terá que instalalo também, para isso 
 Caso não tenha o MATPLOTLIB instalado você terá que instalalo também, para isso basta rodar a seguinte linha de código:<br />
 `pip install matplotlib`<br />
 
-### PS: Para uma compreenção melhor do desenvolvimento do desafio criei um arquivo Jupyter que explica tudo com mais detalhes. Para visualizar o arquivo [clique aqui](desafio.ipynb)
+### PS: Para uma compreenção melhor do desenvolvimento do desafio, criei um arquivo Jupyter que explica tudo com mais detalhes. Para visualizar o arquivo [clique aqui](desafio.ipynb)
