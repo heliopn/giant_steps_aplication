@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 
 def find_errors_and_format(lines):
     bad_format = {"SIDE": [], "QTY_INV": [], "QTY_NEG": [], "TICKER": []}

@@ -1,6 +1,3 @@
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 from findErrors import find_errors_and_format
 from sumTickers import sum_tickers_and_create_result
 
